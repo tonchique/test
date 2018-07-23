@@ -7,7 +7,7 @@ export default class List extends Component {
     }
 
     render() {
-        return (<table className="table table-striped table-bordered">
+        const list = (<table className="table table-striped table-bordered">
             <thead>
             <tr>
                 <th>ID</th>
@@ -19,5 +19,7 @@ export default class List extends Component {
             {this.props.emails.map((email) => <EmailForm key={email.id} content={email} />)}
             </tbody>
         </table>);
+
+        return list;
     }
 }
