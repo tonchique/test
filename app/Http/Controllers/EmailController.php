@@ -81,7 +81,17 @@ class EmailController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|max:255',
+            'value' => 'required|max:255',
+        ]);
+        $email = Email::findOrFail($id);
+        $email->name = $request->input('name');
+        $email->value = $request->input('value');
+
+        if ($email->save()) {
+            return response()->json($email->toArray(), 200);
+        }
     }
 
     /**

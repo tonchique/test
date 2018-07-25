@@ -22,3 +22,6 @@ Route::get('emails', 'EmailController@index');
 
 //Create email entry
 Route::post('emails', 'EmailController@store');
+
+//Update email entry
+Route::put('emails/{email}', 'EmailController@update');
