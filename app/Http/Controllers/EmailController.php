@@ -83,7 +83,7 @@ class EmailController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|max:255',
-            'value' => 'required|max:255',
+            'value' => 'required|unique:emails|max:255',
         ]);
         $email = Email::findOrFail($id);
         $email->name = $request->input('name');
